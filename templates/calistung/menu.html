@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="page-title">Pilih Permainan Belajarmu! 🎮</h2>
+
+<div class="row justify-content-center">
+    <!-- Menu Mengenal Huruf -->
+    <div class="col-md-4 mb-4">
+        <div class="card card-custom h-100">
+            <div class="card-header-custom">
+                🅰️ Mengenal Huruf
+            </div>
+            <div class="card-body text-center">
+                <p>Belajar huruf A sampai Z.</p>
+                <div class="display-1 mb-3">🔤</div>
+                <a href="{{ url_for('calistung_huruf') }}" class="btn btn-custom w-100">Mulai Belajar</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menu Tebak Angka -->
+    <div class="col-md-4 mb-4">
+        <div class="card card-custom h-100">
+            <div class="card-header-custom">
+                🔢 Tebak Angka
+            </div>
+            <div class="card-body text-center">
+                <p>Kuis berhitung tambah dan kurang.</p>
+                <div class="display-1 mb-3">➕➖</div>
+                <a href="{{ url_for('calistung_angka') }}" class="btn btn-custom w-100">Mulai Bermain</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="text-center mt-4">
+    <a href="{{ url_for('index') }}" class="btn btn-outline-success">⬅️ Kembali ke Home</a>
+</div>
+{% endblock %}
