@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="text-center mt-5">
+    <h1 class="display-4 fw-bold" style="color: var(--primary-color);">Selamat Datang di<br>Sahabat Belajar Anak! 🎈
+    </h1>
+    <p class="lead mt-3">Tempat bermain sambil belajar yang asyik.</p>
+
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-5 mb-4">
+            <div class="card card-custom h-100 p-4 text-center">
+                <div class="card-body">
+                    <h3 class="card-title text-success fw-bold">📚 Calistung</h3>
+                    <p class="card-text">Belajar Membaca, Menulis, dan Berhitung dengan cara yang seru!</p>
+                    <a href="{{ url_for('calistung_menu') }}" class="btn btn-custom btn-lg w-100">Buka Modul</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5 mb-4">
+            <div class="card card-custom h-100 p-4 text-center" style="opacity: 0.7;">
+                <div class="card-body">
+                    <h3 class="card-title text-secondary fw-bold">🇬🇧 English (Coming Soon)</h3>
+                    <p class="card-text">Belajar bahasa Inggris dasar untuk anak-anak.</p>
+                    <button class="btn btn-secondary btn-lg w-100" disabled>Segera Hadir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
