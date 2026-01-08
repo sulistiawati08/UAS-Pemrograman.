@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="page-title">🅰️ Belajar Huruf</h2>
+
+<div class="row mb-3">
+    <div class="col text-center">
+        <p class="lead">Klik salah satu huruf untuk melihat kejutan!</p>
+    </div>
+</div>
+
+<div class="card p-4 shadow-sm">
+    <div class="huruf-grid">
+        {% for huruf in huruf_list %}
+        <div class="huruf-btn" onclick="showHuruf('{{ huruf }}', '{{ kata_dict[huruf] }}')">
+            {{ huruf }}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="text-center mt-4">
+    <a href="{{ url_for('calistung_menu') }}" class="btn btn-outline-secondary">⬅️ Kembali ke Menu</a>
+</div>
+
+<!-- Modal Pop-up -->
+<div class="modal fade" id="hurufModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center">
+            <div class="modal-header bg-success text-white border-0">
+                <h5 class="modal-title fw-bold">Huruf Apa Ini?</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-5">
+                <h1 id="modalHuruf" class="display-1 fw-bold text-success" style="font-size: 6rem;">A</h1>
+                <h3 class="mt-3">adalah untuk...</h3>
+                <h2 id="modalKata" class="display-5 fw-bold text-warning mt-2">Apel 🍎</h2>
+            </div>
+            <div class="modal-footer justify-content-center border-0">
+                <button type="button" class="btn btn-custom" data-bs-dismiss="modal">Oke, Paham! 👍</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+    function showHuruf(huruf, kata) {
+        document.getElementById('modalHuruf').textContent = huruf;
+        // Simple emoji mapping for demo purposes (can be expanded)
+        let emoji = '';
+        if (kata.includes('Apel')) emoji = '🍎';
+        else if (kata.includes('Bola')) emoji = '⚽';
+        else if (kata.includes('Gajah')) emoji = '🐘';
+        else if (kata.includes('Ikan')) emoji = '🐟';
+        else if (kata.includes('Kuda')) emoji = '🐴';
+        else if (kata.includes('Pisang')) emoji = '🍌';
+        else if (kata.includes('Zebra')) emoji = '🦓';
+        else emoji = '✨'; // Default sparkle
+
+        document.getElementById('modalKata').textContent = kata + ' ' + emoji;
+
+        var modal = new bootstrap.Modal(document.getElementById('hurufModal'));
+        modal.show();
+    }
+</script>
+{% endblock %}
